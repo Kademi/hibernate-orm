@@ -1,35 +1,46 @@
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply from: "./libraries.gradle"
+apply plugin: 'maven-publish'
 
 allprojects {
     repositories {
-        mavenCentral()
-        mavenLocal()
+        // mavenCentral()
+        // mavenLocal()
+
+		maven {
+			name 'mavenCentral'
+			url "https://repo1.maven.org/maven2/"
+		}
 
         maven {
             name 'jboss-nexus'
-            url "http://repository.jboss.org/nexus/content/groups/public/"
+            url "https://repository.jboss.org/nexus/content/groups/public/"
         }
         maven {
             name "jboss-snapshots"
-            url "http://snapshots.jboss.org/maven2/"
+            url "https://snapshots.jboss.org/maven2/"
         }
     }
 }
 
 buildscript {
     repositories {
-        mavenCentral()
-        mavenLocal()
+        // mavenCentral()
+        // mavenLocal()
+
+		maven {
+			name 'mavenCentral'
+			url "https://repo1.maven.org/maven2/"
+		}
 
         maven {
             name 'jboss-nexus'
-            url "http://repository.jboss.org/nexus/content/groups/public/"
+            url "https://repository.jboss.org/nexus/content/groups/public/"
         }
         maven {
             name "jboss-snapshots"
-            url "http://snapshots.jboss.org/maven2/"
+            url "https://snapshots.jboss.org/maven2/"
         }
     }
     dependencies {
@@ -421,11 +432,11 @@ subprojects { subProject ->
 			maven {
 				if ( subProject.version.endsWith( 'SNAPSHOT' ) ) {
 					name 'jboss-snapshots-repository'
-					url 'https://repository.jboss.org/nexus/content/repositories/snapshots'
+					url 'httpss://repository.jboss.org/nexus/content/repositories/snapshots'
 				}
 				else {
 					name 'jboss-releases-repository'
-					url 'https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/'
+					url 'httpss://repository.jboss.org/nexus/service/local/staging/deploy/maven2/'
 				}
 			}
 		}

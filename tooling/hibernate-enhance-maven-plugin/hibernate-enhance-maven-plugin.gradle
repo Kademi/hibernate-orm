@@ -6,7 +6,10 @@ import org.apache.tools.ant.filters.ReplaceTokens
 group = 'org.hibernate.orm.tooling'
 
 repositories {
-    mavenCentral()
+		maven {
+			name 'mavenCentral'
+			url "https://repo1.maven.org/maven2/"
+		}
 }
 
 processResources.doLast {
